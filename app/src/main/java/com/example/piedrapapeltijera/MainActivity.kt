@@ -3,6 +3,8 @@ package com.example.piedrapapeltijera
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -40,13 +43,19 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun PiedraPapelTijera() {
-    val image = painterResource(id = R.drawable.piedra)
+    val image = painterResource(id = R.drawable.icono)
     var jugador by remember { mutableStateOf("Piedra") }
     var maquina by remember { mutableStateOf("Papel") }
     var puntuaciones by remember { mutableStateOf("0 / 0") }
     var puntuacionJugador by remember { mutableStateOf(0) }
     var puntuacionMaquina by remember { mutableStateOf(0) }
-    Column {
+
+    Column(//Modifier.background(Color.White)
+    ) {
+        Image(
+            painter = image,
+            contentDescription = null
+        )
         Text(
             text = "Puntuacion", fontSize = 30.sp, modifier = Modifier
                 .fillMaxWidth()
@@ -135,7 +144,7 @@ fun PiedraPapelTijera() {
             verticalAlignment = Alignment.Bottom, modifier = Modifier.fillMaxHeight()
         ) {
             Spacer(modifier = Modifier.weight(1f))
-            var texto = "PRUEBA TEXTO ABAJO"
+            var texto = "Javier Gonzalez Eslava"
             Text(
                 text = texto,
                 fontSize = 20.sp,
